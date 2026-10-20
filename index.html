@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For My Princess Basma ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#090507;color:#ffe5ec;
+ font-family:Georgia,serif;text-align:center;
+ overflow-x:hidden
+}
+main{max-width:520px;margin:auto;padding:55px 20px;position:relative}
+h1{color:#ff4266;font-size:38px}
+h2{color:#ff8ba4}
+p{line-height:1.9}
+button{
+ background:#a90e32;color:white;border:1px solid #ff5377;
+ border-radius:30px;padding:14px 22px;margin:8px;
+ cursor:pointer;font-size:15px
+}
+button:active{transform:scale(.96)}
+.card{
+ border:1px solid #9f2542;border-radius:16px;
+ padding:16px;margin:14px 0;background:#180b10
+}
+.note{display:none;color:#ffd6e0}
+.hidden{display:none}
+.heart{
+ position:fixed;bottom:-35px;color:#ff3157;
+ animation:up 6s linear forwards;pointer-events:none
+}
+@keyframes up{
+ to{transform:translateY(-110vh) rotate(25deg);opacity:0}
+}
+#surprise{color:#ff9ab0;font-size:20px}
+a{color:#ff9ab0}
+</style>
+</head>
+<body>
+<main>
+ <div style="font-size:42px">♡</div>
+ <p>THIS LITTLE WORLD IS ONLY FOR</p>
+ <h1>Princess Basma 👑</h1>
+ <p>A little world made just for you, my love.</p>
+
+ <button id="start" onclick="openLove()">
+  ♡ Open me, baby 💌
+ </button>
+
+ <section id="inside" class="hidden">
+  <h2>Hi, my princess Basma ❤️</h2>
+  <p>
+   If I could give you one thing in life,
+   I'd give you the ability to see yourself
+   through my eyes. Then you'd understand
+   how special you are to me.
+  </p>
+
+  <h2>Little love notes 💌</h2>
+
+  <div class="card">
+   <button onclick="note(0)">♡ A little reminder</button>
+   <p class="note">You're loved more than words could explain.
+   You never have to be perfect to be precious to me, baby. ♡</p>
+  </div>
+
+  <div class="card">
+   <button onclick="note(1)">♡ Why I adore you</button>
+   <p class="note">Your laugh, your heart, your little habits,
+   and all the tiny things that make you YOU.
+   I cherish them more than you know. ❤️</p>
+  </div>
+
+  <div class="card">
+   <button onclick="note(2)">♡ Read this on a bad day</button>
+   <p class="note">Take a breath, my princess.
+   You don't have to figure everything out today.
+   You deserve kindness, patience, and happiness.
+   I'm always cheering for you. 🫂</p>
+  </div>
+
+  <div class="card">
+   <h2>Our song 🎶</h2>
+   <p>Cigarettes After Sex — Apocalypse</p>
+   <button onclick="song()">Play our song ♡</button>
+   <p style="font-size:12px">Some songs feel like us.</p>
+  </div>
+
+  <button onclick="secret()">One last thing... 🎁</button>
+  <div id="surprise" class="hidden">
+   <h2>My forever favorite girl ❤️</h2>
+   <p>
+    Out of all the people in this world,
+    I'm so happy I got to know you.
+    Thank you for being my Basma,
+    for being yourself, and for being
+    someone so special to my heart.
+   </p>
+   <p>No matter how ordinary a day is,
+   you make it mean a little more.</p>
+   <h1>∞ ♡</h1>
+   <p>Always, your girl. ❤️</p>
+  </div>
+ </section>
+</main>
+
+<script>
+function openLove(){
+ document.getElementById('inside').classList.remove('hidden');
+ document.getElementById('start').style.display='none';
+ for(let i=0;i<20;i++) setTimeout(makeHeart,i*100);
+}
+function note(i){
+ const n=document.querySelectorAll('.note');
+ n[i].style.display=n[i].style.display==='block'?'none':'block';
+ makeHeart();
+}
+function secret(){
+ document.getElementById('surprise').classList.remove('hidden');
+ for(let i=0;i<35;i++) setTimeout(makeHeart,i*100);
+}
+function song(){
+ window.open(
+ 'https://www.youtube.com/results?search_query=Cigarettes+After+Sex+Apocalypse+official',
+ '_blank','noopener'
+ );
+}
+function makeHeart(){
+ const h=document.createElement('span');
+ h.className='heart';
+ h.textContent=Math.random()>.5?'♥':'♡';
+ h.style.left=Math.random()*100+'vw';
+ h.style.fontSize=(15+Math.random()*25)+'px';
+ const d=4+Math.random()*4;
+ h.style.animationDuration=d+'s';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),d*1000);
+}
+setInterval(makeHeart,700);
+</script>
+</body>
+</html>
